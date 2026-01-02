@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
     {
         int numBonus = miGestor.transform.childCount;
 
-        if (numBonus > 0)
+        if (numBonus == 0)
         {
-            if (nivel > 5)
+            if (nivel == 1)
             {
-                SceneManager.LoadScene(nivel++);
+                SceneManager.LoadScene(2);
             }
 
-            if (nivel == 5)
+            else if (nivel == 2)
             {
                 SceneManager.LoadScene(0);
             }
