@@ -8,7 +8,7 @@ public class Dinamica : MonoBehaviour
     private Rigidbody rb_Jugador;
 
     public float multiplicadorDesplazamiento = 8.0f;
-    public Transform cameraTransform; // Asigna el CameraTarget o la cámara
+    public Transform cameraTransform;
 
     private float inputX, inputZ;
     private Vector3 direccionMovimiento;
@@ -21,11 +21,9 @@ public class Dinamica : MonoBehaviour
 
     void Update()
     {
-        // Input
         inputX = Input.GetAxis("Horizontal");
         inputZ = Input.GetAxis("Vertical");
 
-        // Direcciones de la cámara en el plano XZ
         Vector3 camForward = cameraTransform.forward;
         camForward.y = 0;
         camForward.Normalize();
@@ -34,16 +32,29 @@ public class Dinamica : MonoBehaviour
         camRight.y = 0;
         camRight.Normalize();
 
-        // Dirección final del movimiento relativa a la cámara
         direccionMovimiento = (camForward * inputZ + camRight * inputX) * multiplicadorDesplazamiento;
 
-        // Mantener la velocidad vertical del rigidbody
         direccionMovimiento.y = rb_Jugador.velocity.y;
     }
 
     void FixedUpdate()
     {
-        // Aplicar movimiento
         rb_Jugador.velocity = direccionMovimiento;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject colisionado = collision.gameObject;
+        GameObject colisionante = this.gameObject;
+
+        Debug.Log("Que rico");
+
+        string tagColisionado = colisionado.tag;
+        string tagColisionante = colisionante.tag;
+
+        if (tagColisionado == "Eatable")
+        {
+            Destroy(colisionado);
+        }
     }
 }
