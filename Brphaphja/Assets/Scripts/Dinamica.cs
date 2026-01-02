@@ -6,28 +6,44 @@ public class Dinamica : MonoBehaviour
 {
     private MeshRenderer m_Renderer_Jugador;
     private Rigidbody rb_Jugador;
-    private float coordenadaX, coordenadaY, coordenadaZ;
+
     public float multiplicadorDesplazamiento = 8.0f;
-    private Vector3 velocidad_i;
-    
-    // Start is called before the first frame update
+    public Transform cameraTransform; // Asigna el CameraTarget o la cámara
+
+    private float inputX, inputZ;
+    private Vector3 direccionMovimiento;
+
     void Start()
     {
         m_Renderer_Jugador = GetComponent<MeshRenderer>();
-        rb_Jugador = GetComponent <Rigidbody>();
+        rb_Jugador = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //m_Renderer_Jugador.enabled = true;
-        //rb_Jugador.useGravity = true;
+        // Input
+        inputX = Input.GetAxis("Horizontal");
+        inputZ = Input.GetAxis("Vertical");
 
-        coordenadaY = rb_Jugador.velocity.y;
-        coordenadaX = Input.GetAxis("Horizontal") * multiplicadorDesplazamiento;
-        coordenadaZ = Input.GetAxis("Vertical") * multiplicadorDesplazamiento;
+        // Direcciones de la cámara en el plano XZ
+        Vector3 camForward = cameraTransform.forward;
+        camForward.y = 0;
+        camForward.Normalize();
 
-        velocidad_i = new Vector3(coordenadaX, coordenadaY, coordenadaZ);
-        rb_Jugador.velocity = velocidad_i;
+        Vector3 camRight = cameraTransform.right;
+        camRight.y = 0;
+        camRight.Normalize();
+
+        // Dirección final del movimiento relativa a la cámara
+        direccionMovimiento = (camForward * inputZ + camRight * inputX) * multiplicadorDesplazamiento;
+
+        // Mantener la velocidad vertical del rigidbody
+        direccionMovimiento.y = rb_Jugador.velocity.y;
+    }
+
+    void FixedUpdate()
+    {
+        // Aplicar movimiento
+        rb_Jugador.velocity = direccionMovimiento;
     }
 }
