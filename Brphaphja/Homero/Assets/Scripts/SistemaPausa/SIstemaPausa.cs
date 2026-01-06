@@ -7,6 +7,7 @@ public class SIstemaPausa : MonoBehaviour
     public GameObject ObjetoMenuPausa;
     public bool Pausa = false;
     public GameObject MenuSalir;
+    public GameObject MenuOpciones;
     void Start()
     {
         
@@ -17,7 +18,8 @@ public class SIstemaPausa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Pausa == false)
+
+            if (!Pausa)
             {
                 ObjetoMenuPausa.SetActive(true);
                 Pausa = true;
@@ -33,11 +35,15 @@ public class SIstemaPausa : MonoBehaviour
                     sonidos[i].Pause();
                 }
             }
-            else if (Pausa == true)
+            else if (Pausa)
             {
                 Resumir();
+               
             }
+            
         }
+
+        
 
     }
 
@@ -45,11 +51,13 @@ public class SIstemaPausa : MonoBehaviour
     {
         ObjetoMenuPausa.SetActive(false);
         MenuSalir.SetActive(false);  
+        MenuOpciones.SetActive(false);  
         Pausa = false;
 
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
 
         AudioSource[] sonidos = FindObjectsOfType<AudioSource>();
 
@@ -61,7 +69,10 @@ public class SIstemaPausa : MonoBehaviour
 
     public void Escenas(string nombreEscenas)
     {
+        Time.timeScale = 1;
+        Cursor.visible = true;
         SceneManager.LoadScene(nombreEscenas);
+        
     }
 }
 
