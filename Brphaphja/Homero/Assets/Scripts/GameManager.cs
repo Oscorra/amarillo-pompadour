@@ -30,7 +30,22 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(2);
             }
 
-            else if (nivel == 2)
+            if (nivel == 2)
+            {
+                SceneManager.LoadScene(3);
+            }
+
+            if (nivel == 3)
+            {
+                SceneManager.LoadScene(4);
+            }
+
+            if (nivel == 4)
+            {
+                SceneManager.LoadScene(5);
+            }
+
+            if (nivel == 5)
             {
                 SceneManager.LoadScene(0);
             }

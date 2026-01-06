@@ -14,4 +14,10 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
         Debug.Log("El juego se esta cerrando...");
     }
+
+    private void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 }
