@@ -13,6 +13,7 @@ public class Enemigo : MonoBehaviour
     public TextMeshProUGUI gameOver;
     public GameObject panel;
     public float tiempoEspera = 3f;
+    private int nivel;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class Enemigo : MonoBehaviour
         miJugador = GameObject.FindWithTag("Jugador");
         miEnemigo = this.gameObject;
         asistenteEnemigo = miEnemigo.GetComponent<NavMeshAgent>();
+        nivel = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
@@ -36,7 +38,15 @@ public class Enemigo : MonoBehaviour
         gameOver.gameObject.SetActive(true);
         panel.SetActive(true);
         yield return new WaitForSeconds(tiempoEspera);
-        SceneManager.LoadScene(0);
+        if (nivel <= 3)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(3);
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
