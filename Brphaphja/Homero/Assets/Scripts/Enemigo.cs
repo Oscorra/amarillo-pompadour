@@ -12,19 +12,21 @@ public class Enemigo : MonoBehaviour
     private NavMeshAgent asistenteEnemigo;
     public TextMeshProUGUI gameOver;
     public GameObject panel;
+    private AudioSource cutted;
     public float tiempoEspera = 3f;
     private int nivel;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         miJugador = GameObject.FindWithTag("Jugador");
         miEnemigo = this.gameObject;
         asistenteEnemigo = miEnemigo.GetComponent<NavMeshAgent>();
         nivel = SceneManager.GetActiveScene().buildIndex;
+        cutted = miEnemigo.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         if (miJugador != null)
@@ -55,6 +57,14 @@ public class Enemigo : MonoBehaviour
 
         if (jugadorCapturado.tag == "Jugador")
         {
+            cutted.Play();
+            AudioSource[] sonidos = FindObjectsOfType<AudioSource>();
+
+            for (int i = 0; i < sonidos.Length; i++)
+            {
+                if (sonidos[i].CompareTag("Pausable"))
+                    sonidos[i].Pause();
+            }
             asistenteEnemigo.isStopped = true;
             GetComponent<Collider>().enabled = false;
             Destroy(jugadorCapturado);

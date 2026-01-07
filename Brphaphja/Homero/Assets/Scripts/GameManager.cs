@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int numBonus = miGestor.transform.childCount;
+       int numBonus = miGestor.transform.childCount;
 
         if (numBonus == 0)
         {

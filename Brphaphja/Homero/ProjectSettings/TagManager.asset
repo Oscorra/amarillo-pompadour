@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Eatable
   - Jugador
+  - Pausable
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,8 @@ public class Dinamica : MonoBehaviour
 
     public float multiplicadorDesplazamiento = 8.0f;
     public Transform cameraTransform;
-
+    private GameObject gameManager;
+    private AudioSource eaten;
     private float inputX, inputZ;
     private Vector3 direccionMovimiento;
 
@@ -17,6 +18,9 @@ public class Dinamica : MonoBehaviour
     {
         m_Renderer_Jugador = GetComponent<MeshRenderer>();
         rb_Jugador = GetComponent<Rigidbody>();
+
+        gameManager = GameObject.Find("Bonuses(GM)");
+        eaten = gameManager.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,7 +58,8 @@ public class Dinamica : MonoBehaviour
 
         if (tagColisionado == "Eatable")
         {
-            Destroy(colisionado);
+            eaten.Play();
+            Destroy(colisionado);   
         }
     }
 }

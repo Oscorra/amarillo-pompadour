@@ -32,8 +32,10 @@ public class SIstemaPausa : MonoBehaviour
 
                 for (int i = 0; i < sonidos.Length; i++)
                 {
-                    sonidos[i].Pause();
+                    if (sonidos[i].CompareTag("Pausable"))
+                        sonidos[i].Pause();
                 }
+
             }
             else if (Pausa)
             {
@@ -63,8 +65,10 @@ public class SIstemaPausa : MonoBehaviour
 
         for (int i = 0; i < sonidos.Length; i++)
         {
-            sonidos[i].Play();
+            if (sonidos[i].CompareTag("Pausable"))
+                sonidos[i].Play();
         }
+
     }
 
     public void Escenas(string nombreEscenas)
