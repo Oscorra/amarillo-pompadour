@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18907731}
   - component: {fileID: 18907732}
+  - component: {fileID: 18907733}
   m_Layer: 5
   m_Name: Niveles (1)
   m_TagString: Untagged
@@ -171,6 +172,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a1ad384de5724a8c471a704ad3cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &18907733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18907730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587b7c3bf410d524e8ee02593360e641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeroNivel: 2
+  boton: {fileID: 1146226230}
 --- !u!1 &22555177
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +278,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel 4
+          m_StringArgument: Nivel4
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1454736518}
+        m_TargetAssemblyTypeName: BotonNivel, Assembly-CSharp
+        m_MethodName: CargarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &22555180
@@ -607,7 +634,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel 3
+          m_StringArgument: Nivel3
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 774615102}
+        m_TargetAssemblyTypeName: BotonNivel, Assembly-CSharp
+        m_MethodName: CargarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &114965528
@@ -794,6 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 774615100}
   - component: {fileID: 774615101}
+  - component: {fileID: 774615102}
   m_Layer: 5
   m_Name: Niveles (2)
   m_TagString: Untagged
@@ -833,6 +873,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a1ad384de5724a8c471a704ad3cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &774615102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774615099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587b7c3bf410d524e8ee02593360e641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeroNivel: 3
+  boton: {fileID: 114965527}
 --- !u!1 &803521851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1358,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel 1
+          m_StringArgument: Nivel1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2027537359}
+        m_TargetAssemblyTypeName: BotonNivel, Assembly-CSharp
+        m_MethodName: CargarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1056991033
@@ -1437,7 +1503,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel 2
+          m_StringArgument: Nivel2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 18907733}
+        m_TargetAssemblyTypeName: BotonNivel, Assembly-CSharp
+        m_MethodName: CargarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1146226231
@@ -1624,6 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454736516}
   - component: {fileID: 1454736517}
+  - component: {fileID: 1454736518}
   m_Layer: 5
   m_Name: Niveles (3)
   m_TagString: Untagged
@@ -1663,6 +1742,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a1ad384de5724a8c471a704ad3cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1454736518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454736515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587b7c3bf410d524e8ee02593360e641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeroNivel: 4
+  boton: {fileID: 22555179}
 --- !u!1 &1462862966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +1860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723163899}
   - component: {fileID: 1723163900}
+  - component: {fileID: 1723163901}
   m_Layer: 5
   m_Name: Niveles (4)
   m_TagString: Untagged
@@ -1806,6 +1900,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a1ad384de5724a8c471a704ad3cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1723163901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723163898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587b7c3bf410d524e8ee02593360e641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeroNivel: 5
+  boton: {fileID: 1923233675}
 --- !u!1 &1742392247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,7 +2166,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel 5
+          m_StringArgument: Nivel5
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1723163901}
+        m_TargetAssemblyTypeName: BotonNivel, Assembly-CSharp
+        m_MethodName: CargarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1923233676
@@ -2109,6 +2229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2027537357}
   - component: {fileID: 2027537358}
+  - component: {fileID: 2027537359}
   m_Layer: 5
   m_Name: Niveles
   m_TagString: Untagged
@@ -2148,6 +2269,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a1ad384de5724a8c471a704ad3cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2027537359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027537356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587b7c3bf410d524e8ee02593360e641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeroNivel: 1
+  boton: {fileID: 1056991032}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
