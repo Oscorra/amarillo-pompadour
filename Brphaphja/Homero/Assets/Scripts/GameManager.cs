@@ -1,54 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
     private int nivel;
-    private string nombreNivel;
-    private GameObject miGestor, miJugador;
-    
-    // Start is called before the first frame update
+    private string saveFilePath;
+    private GameObject miGestor;
+
+    private const int NIVEL_MAXIMO = 5;
+
     void Start()
     {
-        nombreNivel = SceneManager.GetActiveScene().name;
         nivel = SceneManager.GetActiveScene().buildIndex;
         miGestor = this.gameObject;
+
+        saveFilePath = Application.persistentDataPath + "/Guardado.txt";
+
+        if (!File.Exists(saveFilePath))
+        {
+            File.WriteAllText(saveFilePath, "1");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-       int numBonus = miGestor.transform.childCount;
+        int numBonus = miGestor.transform.childCount;
 
         if (numBonus == 0)
         {
-            if (nivel == 1)
-            {
-                SceneManager.LoadScene(2);
-            }
+            int siguienteNivel = nivel + 1;
 
-            if (nivel == 2)
-            {
-                SceneManager.LoadScene(3);
-            }
-
-            if (nivel == 3)
-            {
-                SceneManager.LoadScene(4);
-            }
-
-            if (nivel == 4)
-            {
-                SceneManager.LoadScene(5);
-            }
-
-            if (nivel == 5)
+            // Si ya estamos en el último nivel, volvemos al menú
+            if (siguienteNivel > NIVEL_MAXIMO)
             {
                 SceneManager.LoadScene(0);
+                return;
             }
+
+            GuardarProgreso(siguienteNivel);
+            CargarSiguienteNivel();
         }
     }
+
+    private void GuardarProgreso(int siguienteNivel)
+    {
+        if (siguienteNivel > NIVEL_MAXIMO)
+            siguienteNivel = NIVEL_MAXIMO;
+
+        File.WriteAllText(saveFilePath, siguienteNivel.ToString());
+        Debug.Log("Progreso guardado: Nivel " + siguienteNivel);
+    }
+
+    private void CargarSiguienteNivel()
+    {
+        int siguienteNivel = nivel + 1;
+
+        if (siguienteNivel > NIVEL_MAXIMO)
+            siguienteNivel = 0; // Menú
+
+        SceneManager.LoadScene(siguienteNivel);
+    }
 }
+
+
