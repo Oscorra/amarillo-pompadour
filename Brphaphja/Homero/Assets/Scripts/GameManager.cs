@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         {
             int siguienteNivel = nivel + 1;
 
-            // Si ya estamos en el último nivel, volvemos al menú
             if (siguienteNivel > NIVEL_MAXIMO)
             {
                 SceneManager.LoadScene(0);
