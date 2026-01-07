@@ -13,13 +13,11 @@ public class baile : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("h"))
-        {
+        if (Input.GetKeyDown(KeyCode.H))
             anim.SetBool("homerodaleduro", true);
-        }
-        if (!Input.GetKey("h"))
-        {
+
+        if (Input.GetKeyUp(KeyCode.H))
             anim.SetBool("homerodaleduro", false);
-        }
     }
+
 }
