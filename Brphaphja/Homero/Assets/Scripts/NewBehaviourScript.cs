@@ -43,6 +43,6 @@ public class VideoIntro : MonoBehaviour
     void ReanudarYSalir()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(escenaSiguiente);
+        SceneManager.LoadScene(2);
     }
 }
