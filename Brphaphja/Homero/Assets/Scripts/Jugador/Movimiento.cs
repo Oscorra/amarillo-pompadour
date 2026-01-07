@@ -2,24 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimiento : MonoBehaviour
+public class Movimientodelante : MonoBehaviour
 {
     Animator anim;
+    private Dinamica Dinamica;
     void Start()
     {
         anim = GetComponent<Animator>();
+        Dinamica = GetComponent<Dinamica>();
     }
 
     
     void Update()
     {
-        if (Input.GetKey("w"))
-        {
-            anim.SetBool("cmueve", true);
-        }
-        if (!Input.GetKey("w"))
-        {
-            anim.SetBool("cmueve", false);
-        }
+        anim.SetFloat("VelZ", Dinamica.inputZ);
+        anim.SetFloat("VelX", Dinamica.inputX);
     }
 }

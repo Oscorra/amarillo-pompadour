@@ -11,7 +11,8 @@ public class Dinamica : MonoBehaviour
     public Transform cameraTransform;
     private GameObject gameManager;
     private AudioSource eaten;
-    private float inputX, inputZ;
+    public float inputX { get; private set; }
+    public float inputZ { get; private set; }
     private Vector3 direccionMovimiento;
 
     void Start()
