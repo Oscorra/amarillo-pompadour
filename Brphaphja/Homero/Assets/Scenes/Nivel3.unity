@@ -4545,8 +4545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9c9f631f4f81b4d8a5ae0cc2130934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
-  panel: {fileID: 0}
+  gameOver: {fileID: 1114509424}
+  panel: {fileID: 371072741}
   tiempoEspera: 3
 --- !u!195 &1027595942
 NavMeshAgent:
