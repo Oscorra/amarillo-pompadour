@@ -5,29 +5,53 @@ using UnityEngine;
 
 public class RotacionCamara : MonoBehaviour
 {
+    [Header("Sensibilidad")]
+    public float sensibilidadX = 200f;
+    public float sensibilidadY = 150f;
 
+    [Header("Límites verticales")]
+    public float minY = -20f;
+    public float maxY = 60f;
 
-    public float sensitivity = 150f;
-    float rotationX = 0f;
-    float rotationY = 0f;
+    [Header("Distancia y objetivo")]
+    public Transform objetivo;   // El objeto dentro del jugador
+    public float distancia = 5f;
+    public float altura = 2f;
 
-     void Start()
+    private float rotX;
+    private float rotY;
+
+    private void Start()
     {
+        Vector3 angles = transform.eulerAngles;
+        rotX = angles.y;
+        rotY = angles.x;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    void Update()
+    private void LateUpdate()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        // Movimiento del ratón
+        float mouseX = Input.GetAxis("Mouse X") * sensibilidadX * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensibilidadY * Time.deltaTime;
 
-        rotationY += mouseX;
-        rotationX -= mouseY;
+        rotX += mouseX;
+        rotY -= mouseY;
 
-        rotationX = Mathf.Clamp(rotationX,-100f, 60f);
+        rotY = Mathf.Clamp(rotY, minY, maxY);
 
-        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
+        // Rotación final
+        Quaternion rot = Quaternion.Euler(rotY, rotX, 0f);
 
+        // Posición de la cámara alrededor del objetivo
+        Vector3 offset = rot * new Vector3(0, altura, -distancia);
+
+        transform.position = objetivo.position + offset;
+
+        // Mirar al objetivo
+        transform.LookAt(objetivo);
     }
+
 }
